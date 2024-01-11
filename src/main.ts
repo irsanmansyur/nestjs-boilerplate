@@ -2,11 +2,11 @@ import { NestFactory } from '@nestjs/core';
 import compression from '@fastify/compress';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import { AppModule } from './app.module';
-import { ExceptionBaseFilter } from 'commons/filters/fastify-exception.filter';
-import { TransformInterceptor } from 'commons/interceptors';
-import { CustomValidationPipe } from 'commons/pipes';
-import { useHelmet } from 'commons/helmet';
-import { useSwagger } from 'commons/swagger';
+import { ExceptionBaseFilter } from 'src/commons/filters/fastify-exception.filter';
+import { TransformInterceptor } from 'src/commons/interceptors';
+import { CustomValidationPipe } from 'src/commons/pipes';
+import { useHelmet } from 'src/commons/helmet';
+import { useSwagger } from 'src/commons/swagger';
 import { useContainer } from 'class-validator';
 
 async function bootstrap() {

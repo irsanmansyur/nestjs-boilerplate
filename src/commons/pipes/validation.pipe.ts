@@ -2,7 +2,7 @@ import { ArgumentMetadata, PipeTransform } from '@nestjs/common';
 import { plainToClass } from 'class-transformer';
 import { validate } from 'class-validator';
 import { ValidationException } from '../exceptions';
-import { errorFormatter } from 'commons/helpers';
+import { errorFormatter } from 'src/commons/helpers';
 
 export class CustomValidationPipe implements PipeTransform {
   async transform(value: Record<string, string | number | object | []>, { metatype }: ArgumentMetadata) {
