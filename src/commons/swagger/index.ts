@@ -3,8 +3,8 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 export const useSwagger = (app: INestApplication) => {
   const config = new DocumentBuilder()
-    .setTitle('PEMILU API')
-    .setDescription('Berikut adalah dokumentasi API pada PEMILU')
+    .setTitle('API Documentation')
+    .setDescription('Berikut adalah dokumentasi API')
     .setVersion('1.0')
     .addBearerAuth(
       {
@@ -16,7 +16,7 @@ export const useSwagger = (app: INestApplication) => {
         type: 'http', // I`ve attempted type: 'apiKey' too
         in: 'Header',
       },
-      'access-token' // This name here is important for matching up with @ApiBearerAuth() in your controller!
+      'access-token', // This name here is important for matching up with @ApiBearerAuth() in your controller!
     )
     .build();
   const document = SwaggerModule.createDocument(app, config);
