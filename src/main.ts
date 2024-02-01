@@ -8,6 +8,7 @@ import { CustomValidationPipe } from 'src/commons/pipes';
 import { useHelmet } from 'src/commons/helmet';
 import { useSwagger } from 'src/commons/swagger';
 import { useContainer } from 'class-validator';
+import { SequelizeExceptionFilter } from './commons/filters/sequalize.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -20,7 +21,7 @@ async function bootstrap() {
   //masih bingun tapi pernah dapat bug validator, pakai ini solusinya
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
 
-  app.useGlobalFilters(new ExceptionBaseFilter());
+  app.useGlobalFilters(new ExceptionBaseFilter(), new SequelizeExceptionFilter());
   app.useGlobalInterceptors(new TransformInterceptor());
   app.useGlobalPipes(new CustomValidationPipe());
 
